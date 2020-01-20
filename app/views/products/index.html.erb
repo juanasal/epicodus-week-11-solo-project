@@ -1,7 +1,6 @@
 <h1>Products</h1>
 
 <% if @products.any? %>
-
 <ul>
   <% @products.each do |product| %>
   <li>
@@ -9,7 +8,6 @@
   </li>
   <% end %>
 </ul>
-
 <% else %>
 <p>
   There are no products in the database.
