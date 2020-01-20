@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
 
-  def index
-    # Code for listing all reviews goes here.
-  end
+  # def index
+  #   # Code for listing all reviews goes here.
+  # end
 
   def new
     # Code for new review form goes here.
@@ -24,6 +24,9 @@ class ReviewsController < ApplicationController
 
   def edit
     # Code for edit review form goes here.
+    @product = Product.find(params[:product_id])
+    @rating = Rating.find(params[:id])
+    render :edit
   end
 
   def show
@@ -35,10 +38,19 @@ class ReviewsController < ApplicationController
 
   def update
     # Code for updating an review goes here.
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to product_path(@review.product)
+    else
+      render :edit
+    end
   end
 
   def destroy
     # Code for deleting an review goes here.
+    @review = Review.find(params[:id])
+    @review = destroy
+    redirect_to product_path(@review.product)
   end
 
   private
