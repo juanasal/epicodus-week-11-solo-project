@@ -28,6 +28,9 @@ class ReviewsController < ApplicationController
 
   def show
     # Code for showing a single review goes here.
+    @product = Product.find(params[:product_id])
+    @review = Review.find(params[:id])
+    render :show
   end
 
   def update

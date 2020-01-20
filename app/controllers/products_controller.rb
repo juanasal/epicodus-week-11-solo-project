@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # Code for updating an product goes here.
+    # Code for updating a product goes here.
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to products_path
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    # Code for deleting an product goes here.
+    # Code for deleting a product goes here.
     @product = Product.find(params[:id])
     @product.destory
     redirect_to products_path
