@@ -1,10 +1,24 @@
 <h1><%= @product.name %></h1>
-<h3>Grocery Category: <%= @product.cost %></h3>
-<h3>Cost: <%= @product.genre %></h3>
+<h3>Grocery Category: <%= @product.grocery_category %></h3>
+<h3>Cost: <%= @product.cost %></h3>
 <h3>Country of Origin: <%= @product.country_of_origin %></h3>
 
+<% if @product.reviews.any? %>
+  <h4>Reviews:</h4>
+  <% @product.reviews.each do |review| %>
+    <ul>
+      <li>
+        <%= link_to review.name, product_review_path(@product, review) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No reviews are listed for theis product.</p>
+<% end %>
+
+<p><% link_to "Add a review", new_product_review_path(@product) %></p>
 <p><% link_to "Edit", edit_product_path(@product) %></p>
 <p><% link_to "Delete", product_path(@product),
   :data => {:confirm => "Are you sure you want to delete this product?",
-  method => "delete"} %></p>
+  :method => "delete"} %></p>
 <p><%= link_to "Return to products", products_path %></p>
