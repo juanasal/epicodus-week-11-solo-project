@@ -13,6 +13,13 @@ class ReviewsController < ApplicationController
 
   def create
     # Code for creating a new review goes here.
+    @product = Product.find(params[product_id])
+    @review = @product.reviews.new(review_params)
+    if @review.save
+      redirect_to product_path(@product)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -29,6 +36,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     # Code for deleting an review goes here.
+  end
+
+  private
+  def review_params
+    params.require(:review).permit(:author, :content_body, :rating, :product_id)
   end
 
 end
