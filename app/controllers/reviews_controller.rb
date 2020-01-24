@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def new
     # Code for new review form goes here.
     @product = Product.find(params[:product_id])
-    @review = @product.review.new
+    @review = @product.reviews.new
     render :new
   end
 
