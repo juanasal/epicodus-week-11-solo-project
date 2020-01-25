@@ -1,3 +1,15 @@
+<% if @product.errors.any? %>
+  <h3>Please fix the below errors:</h3>
+  <ul>
+    <% @product.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h1>New Product</h1>
 
 <%= form_for @product do |f| %>
