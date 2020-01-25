@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'jquery-rails'
 
+gem 'faker'
+
 group :test do
   gem 'shoulda-matchers'
 end
