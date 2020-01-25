@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     # Code for creating a new product goes here.
     @product = Product.new(product_params)
     if @product.save
+      flash[:notice] = "Product successfully created."
       redirect_to products_path
     else
       render :new
