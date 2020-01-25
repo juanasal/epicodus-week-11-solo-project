@@ -12,4 +12,9 @@ describe Product do
   it { should validate_presence_of :name }
   it { should validate_length_of(:name).is_at_most(100)}
 
+  it("titelizes the name of the product") do
+    product = Product.create({name: "ice cream", country_of_origin: "france", grocery_category: "desserts", cost: 5})
+    expect(product.name()).to(eq("Ice Cream"))
+  end
+
 end
