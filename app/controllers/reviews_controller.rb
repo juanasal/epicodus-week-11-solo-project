@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def create
     # Code for creating a new review goes here.
-    @product = Product.find(params[product_id])
+    @product = Product.find(params[:product_id])
     @review = @product.reviews.new(review_params)
     if @review.save
       redirect_to product_path(@product)
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   def edit
     # Code for edit review form goes here.
     @product = Product.find(params[:product_id])
-    @rating = Rating.find(params[:id])
+    @review = Review.find(params[:id])
     render :edit
   end
 
@@ -49,7 +49,7 @@ class ReviewsController < ApplicationController
   def destroy
     # Code for deleting an review goes here.
     @review = Review.find(params[:id])
-    @review = destroy
+    @review.destroy
     redirect_to product_path(@review.product)
   end
 
