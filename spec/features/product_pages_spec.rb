@@ -31,4 +31,15 @@ describe "the add a product process" do
     expect(page).to have_content "Blue Cheese"
   end
 
+  # it "deletes a product" do
+  #   click_link 'Yellow Cheese'
+  #   click_link 'Delete'
+  #   page.accept_alert do
+  #     click_button('OK')
+  #   end
+  #   expect(page).to_not have_content 'Yellow Cheese'
+  # end
+# not sure how to make this test pass since the delete form shows an alert
+
+
 end
