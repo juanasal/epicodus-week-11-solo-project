@@ -16,8 +16,10 @@ class ReviewsController < ApplicationController
     @product = Product.find(params[:product_id])
     @review = @product.reviews.new(review_params)
     if @review.save
+      flash[:notice] = "Review successfully created."
       redirect_to product_path(@product)
     else
+      flash[:notice] = "Something went wrong.  Review not successfully created."
       render :new
     end
   end

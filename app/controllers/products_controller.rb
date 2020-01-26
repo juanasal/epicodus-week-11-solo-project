@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product successfully created."
       redirect_to products_path
     else
+      flash[:notice] = "Something went wrong.  Product not successfully created."
       render :new
     end
   end
