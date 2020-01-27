@@ -10,7 +10,7 @@ Product.destroy_all
 Review.destroy_all
 
 50.times do |index|
-  Product.create!(cost: rand(100), country_of_origin: Faker::Address.country, grocery_category: Faker::Restaurant.type, name: Faker::Food.ingredient)
+  Product.create!(cost: rand(100), country_of_origin: Faker::Address.country, grocery_category: Faker::GreekPhilosophers.quote, name: Faker::Food.ingredient)
 end
 
 products = Product.all
@@ -21,7 +21,9 @@ end
 
 
 500.times do |index|
-  Review.create!(author: Faker::Name.unique.name, content_body: Faker::Restaurant.review, rating: rand(6), product_id: product_ids[rand(product_ids.length)])
+  review = Review.create!(author: Faker::Name.unique.name, content_body: Faker::Restaurant.review, rating: rand(5), product_id: product_ids[rand(product_ids.length)])
+  review.update_attribute :created_at, (rand*1000).days.ago
+  review.save
 end
 
 p "Created #{Product.count} products."

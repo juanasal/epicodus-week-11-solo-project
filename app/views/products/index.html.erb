@@ -1,7 +1,7 @@
 
 <% if @products.any? %>
-<h2>Products</h2>
   <div class="product-list">
+    <h2>Products</h2>
     <ul>
       <% @products.each do |product| %>
       <li>
@@ -10,7 +10,27 @@
       <% end %>
     </ul>
   </div>
-
+  <div class="products-most-reviews">
+    <h2>Products with the Most Reviews:</h2>
+    <ul>
+      <% @products_most_reviews.each do |product| %>
+      <li>
+        <%= link_to product.name, product_path(product) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="products-most-recently-reviewed">
+    <h2>Products Most Recently Reviewed:</h2>
+    <ul>
+      <% @products_most_recently_reviewed.each do |product| %>
+      binding.pry
+      <li>
+        <%= link_to product.name, product_path(product) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
   <div class="products-usa-made">
     <h2>Products Made in the USA:</h2>
     <ul>
