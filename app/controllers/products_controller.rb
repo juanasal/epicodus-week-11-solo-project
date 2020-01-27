@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
     @products = Product.all
     @reviews = Review.all
     @products_most_reviews = []
-    
+
     @products_most_recently_reviewed = []
-    most_recently_reviewed = @reviews.order(:created_at).limit(3)
+    most_recently_reviewed = @reviews.order(created_at: :desc).limit(3)
     most_recently_reviewed.each do |review|
       @products_most_recently_reviewed.push(@products.find(review.product_id))
     end
