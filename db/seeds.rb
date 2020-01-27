@@ -10,7 +10,7 @@ Product.destroy_all
 Review.destroy_all
 
 50.times do |index|
-  Product.create!(cost: rand(100), country_of_origin: Faker::Address.country, grocery_category: Faker::GreekPhilosophers.quote, name: Faker::Food.ingredient)
+  Product.create!(cost: rand(100), country_of_origin: Faker::Address.country, grocery_category: Faker::Restaurant.type, name: Faker::Food.ingredient)
 end
 
 products = Product.all
