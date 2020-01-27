@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     # Code for listing all products goes here.
@@ -8,7 +9,7 @@ class ProductsController < ApplicationController
     product_ids_of_reviews = @reviews.map do |review|
       review.product_id
     end
-    
+
     @products_most_recently_reviewed = @reviews.order(created_at: :desc).limit(3).map do |review|
       @products.find(review.product_id)
     end

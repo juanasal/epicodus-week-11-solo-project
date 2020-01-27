@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # def index
   #   # Code for listing all reviews goes here.
