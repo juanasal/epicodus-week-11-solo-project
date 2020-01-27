@@ -1,32 +1,31 @@
-<h1>Products</h1>
 
-<div class="product-list">
-  <% if @products.any? %>
-  <ul>
-    <% @products.each do |product| %>
-    <li>
-      <%= link_to product.name, product_path(product) %>
-    </li>
-    <% end %>
-  </ul>
-  <% else %>
+<% if @products.any? %>
+<h2>Products</h2>
+  <div class="product-list">
+    <ul>
+      <% @products.each do |product| %>
+      <li>
+        <%= link_to product.name, product_path(product) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="products-usa-made">
+    <h2>Products Made in the USA:</h2>
+    <ul>
+      <% @products_usa_made.each do |product| %>
+      <li>
+        <%= link_to product.name, product_path(product) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
   <p>
     There are no products in the database.
   </p>
-  <% end %>
-</div>
-
-<div class="products-most-reviews">
-  
-</div>
-
-<div class="products-most-recently-reviewed">
-
-</div>
-
-<div class="products-usa-made">
-
-</div>
+<% end %>
 
 <p>
   <%= link_to "Add new product", new_product_path %>

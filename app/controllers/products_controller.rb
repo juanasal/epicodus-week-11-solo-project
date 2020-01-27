@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
   def index
     # Code for listing all products goes here.
     @products = Product.all
+    # @products_most_reviews = @products.includes(:)
+
+    @products_usa_made = @products.where("country_of_origin = 'United States' ")
     render :index
   end
 
