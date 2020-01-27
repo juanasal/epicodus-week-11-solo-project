@@ -24,7 +24,6 @@
     <h2>Products Most Recently Reviewed:</h2>
     <ul>
       <% @products_most_recently_reviewed.each do |product| %>
-      binding.pry
       <li>
         <%= link_to product.name, product_path(product) %>
       </li>
